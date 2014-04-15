@@ -1,0 +1,6 @@
+example distro for openQA. Just runs one simple test where you need
+to create the needles for.
+
+To install clone this repo to /var/lib/os-autoinst/tests/<yourdistro>
+then
+# ln -s /var/lib/os-autoinst/tests/<yourdistro> /usr/lib/os-autoinst/distri/<yourdistro>
