@@ -19,18 +19,18 @@ use strict;
 use bmwqemu;
 
 sub is_applicable {
-    return 1; # check for $ENV{SOMETHING}
+    return $self->SUPER::is_applicable; # check for $ENV{SOMETHING}
 }
 
 sub run {
     # wait for bootloader to appear
-    waitforneedle( "bootloader", 30 );
+    assert_screen "bootloader", 30;
 
     # press enter to boot right away
-    sendkey "ret";
+    send_key "ret";
 
     # wait for the desktop to appear
-    waitforneedle( "desktop", 300 );
+    assert_screen "desktop", 300;
 }
 
 sub test_flags {
