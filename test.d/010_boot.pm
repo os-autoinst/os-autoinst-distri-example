@@ -19,7 +19,7 @@ use strict;
 use bmwqemu;
 
 sub is_applicable {
-    return $self->SUPER::is_applicable; # check for $ENV{SOMETHING}
+    return $self->SUPER::is_applicable; # check for $vars{SOMETHING}
 }
 
 sub run {
