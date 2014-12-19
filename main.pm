@@ -1,4 +1,4 @@
-# Copyright (C) 2014 SUSE Linux Products GmbH
+# Copyright (C) 2014 SUSE Linux GmbH
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,10 +15,10 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 use strict;
-use bmwqemu;
+use testapi;
 use autotest;
 
-autotest::loadtestdir("test.d");
+autotest::loadtest get_var('CASEDIR')."/tests/boot.pm";
 
 1;
 

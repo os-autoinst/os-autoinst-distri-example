@@ -1,4 +1,4 @@
-# Copyright (C) 2014 SUSE Linux Products GmbH
+# Copyright (C) 2014 SUSE Linux GmbH
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,12 +16,7 @@
 
 use base "basetest";
 use strict;
-use bmwqemu;
-
-sub is_applicable {
-    my $self = shift;
-    return $self->SUPER::is_applicable; # check for $vars{SOMETHING}
-}
+use testapi;
 
 sub run {
     # wait for bootloader to appear
