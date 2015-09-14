@@ -18,7 +18,7 @@ use strict;
 use testapi;
 use autotest;
 
-autotest::loadtest get_var('CASEDIR')."/tests/boot.pm";
+autotest::loadtest "tests/boot.pm";
 
 1;
 
