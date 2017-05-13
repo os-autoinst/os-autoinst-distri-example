@@ -1,4 +1,4 @@
-# Copyright (C) 2014 SUSE Linux GmbH
+# Copyright (C) 2014-2017 SUSE LLC
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -11,30 +11,29 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License along
-# with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+# with this program; if not, see <http://www.gnu.org/licenses/>.
 
-use base "basetest";
+use base 'basetest';
 use strict;
 use testapi;
 
 sub run {
     # wait for bootloader to appear
-    assert_screen "bootloader", 30;
+    assert_screen 'bootloader';
 
     # press enter to boot right away
-    send_key "ret";
+    send_key 'ret';
 
     # wait for the desktop to appear
-    assert_screen "desktop", 300;
+    assert_screen 'desktop', 300;
 }
 
 sub test_flags {
-    # without anything - rollback to 'lastgood' snapshot if failed
-    # 'fatal' - whole test suite is in danger if this fails
-    # 'milestone' - after this test succeeds, update 'lastgood'
-    # 'important' - if this fails, set the overall state to 'fail'
-    return { important => 1 };
+    # 'fatal'          - abort whole test suite if this fails (and set overall state 'failed')
+    # 'ignore_failure' - if this module fails, it will not affect the overall result at all
+    # 'milestone'      - after this test succeeds, update 'lastgood'
+    # 'norollback'     - don't roll back to 'lastgood' snapshot if this fails
+    return { fatal => 1 };
 }
 
 1;
