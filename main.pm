@@ -22,4 +22,3 @@ autotest::loadtest "tests/boot.pm";
 
 1;
 
-# vim: set sw=4 et:
