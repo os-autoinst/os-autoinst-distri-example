@@ -1,4 +1,4 @@
-# Copyright (C) 2014-2017 SUSE LLC
+# Copyright (C) 2014-2018 SUSE LLC
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,13 +28,4 @@ sub run {
     assert_screen 'desktop', 300;
 }
 
-sub test_flags {
-    # 'fatal'          - abort whole test suite if this fails (and set overall state 'failed')
-    # 'ignore_failure' - if this module fails, it will not affect the overall result at all
-    # 'milestone'      - after this test succeeds, update 'lastgood'
-    # 'norollback'     - don't roll back to 'lastgood' snapshot if this fails
-    return { fatal => 1 };
-}
-
 1;
-

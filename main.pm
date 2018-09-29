@@ -1,4 +1,4 @@
-# Copyright (C) 2014 SUSE Linux GmbH
+# Copyright (C) 2014-2018 SUSE LLC
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@ use strict;
 use testapi;
 use autotest;
 
-autotest::loadtest "tests/boot.pm";
+autotest::loadtest 'tests/boot.pm';
 
 1;
-
