@@ -1,0 +1,11 @@
+---
+name: isotovideo
+# yamllint disable-line rule:truthy
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run isotovideo against test code in happy-path scenario
+        run: podman run --rm -it -v .:/tests registry.opensuse.org/home/okurz/container/containers/isotovideo:qemu-x86 qemu_no_kvm=1 casedir=/tests
