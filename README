@@ -1,4 +1,4 @@
-# Example distro for openQA ![](https://github.com/os-autoinst-distri-example/scripts/workflows/isotovideo/badge.svg)
+# Example distro for openQA ![isotovideo](https://github.com/os-autoinst/os-autoinst-distri-example/workflows/isotovideo/badge.svg)
 
 example distro for openQA. Just runs one simple test where you need
 to create the needles for.
