@@ -33,11 +33,17 @@ requests for consideration or create an issue with a code change proposal.
 
 ### Local testing and CI environment
 
-This is intended to be used with openQA as a learning example. But one can
-also use the same code for running standalone isotovideo. The workflow based
-on isotovideo is also used by the CI pipeline which serves as another example
-how one can integrate isotovideo into a CI pipeline, here based on the example
-of github actions.
+This repo is intended to be used with openQA as a learning example. But one
+can also use the same code for running standalone isotovideo. The workflow
+based on isotovideo is also used by the CI pipeline which serves as another
+example how one can integrate isotovideo into a CI pipeline, here based on the
+example of github actions.
+
+Find the latest status from CI runs in
+https://github.com/os-autoinst/os-autoinst-distri-example/actions
+
+The CI pipeline is defined within
+https://github.com/os-autoinst/os-autoinst-distri-example/blob/master/.github/workflows/isotovideo.yml
 
 ## License
 
