@@ -49,8 +49,16 @@ example of github actions.
 Find the latest status from CI runs in
 https://github.com/os-autoinst/os-autoinst-distri-example/actions
 
-The CI pipeline is defined within
-https://github.com/os-autoinst/os-autoinst-distri-example/blob/master/.github/workflows/isotovideo.yml
+A basic CI pipeline is defined within
+[.github/workflows/isotovideo.yml](.github/workflows/isotovideo.yml)
+showing how isotovideo can be run against the tests. Note that this pipeline
+will succeed as long as isotovideo could successfully execute the complete
+test flow regardless of their individual results.
+
+A more advanced example is shown in
+[.github/workflows/isotovideo-check-all-test-modules.yml](.github/workflows/isotovideo-check-all-test-modules.yml)
+which defines a pipeline that will fail if any test module returns any other
+status than "ok", for example "failed".
 
 ## License
 
