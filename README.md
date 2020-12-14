@@ -8,6 +8,10 @@ To use this repository with openQA, clone this repo to
 
 To use it standalone with isotovideo any other local path is fine.
 
+When running tests based on the state in this repo the test is expected to
+fail as no needles are present. Creating the needles is by intention left to
+new users as a learning exercise by running the test distribution within
+openQA and using the openQA internal needle editor to create a new needle.
 
 ## Communication
 
