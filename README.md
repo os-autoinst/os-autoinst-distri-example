@@ -33,8 +33,11 @@ requests for consideration or create an issue with a code change proposal.
 
 ### Local testing and CI environment
 
-This repo is intended to be used with openQA as a learning example. But one
-can also use the same code for running standalone isotovideo. The workflow
+This repo is intended to be used with openQA as a learning example. The
+example was first featured in the workshop talk [osc14: Ludwig Nussel, How to
+write openQA tests](https://youtu.be/EM3XmaQXcLg).
+
+One can also use the same code for running standalone isotovideo. The workflow
 based on isotovideo is also used by the CI pipeline which serves as another
 example how one can integrate isotovideo into a CI pipeline, here based on the
 example of github actions.
