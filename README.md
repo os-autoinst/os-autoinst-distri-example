@@ -60,6 +60,12 @@ A more advanced example is shown in
 which defines a pipeline that will fail if any test module returns any other
 status than "ok", for example "failed".
 
+Effectively the same workflow can be found in
+[.github/workflows/isotovideo-action.yml](.github/workflows/isotovideo-action.yml),
+it only uses a more GitHub action specific syntax. This makes it easier to
+integrate into more complex workflows but it is less suitable for executing on
+your local machine.
+
 ## License
 
 This project is licensed under the GPL v2 license, see COPYING file for

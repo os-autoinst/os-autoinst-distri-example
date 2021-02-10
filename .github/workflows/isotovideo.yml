@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run isotovideo against test code in happy-path scenario
-        run: podman run --rm -it -v .:/tests registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86 qemu_no_kvm=1 casedir=/tests
+        run: podman run --rm -it -v .:/tests:Z registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86 qemu_no_kvm=1 casedir=/tests
