@@ -3,17 +3,17 @@ name: isotovideo - github action example
 # yamllint disable-line rule:truthy
 on: [push, pull_request]
 jobs:
-  test:
-    runs-on: ubuntu-20.04
-    container:
-      image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86"
-    steps:
-      - uses: actions/checkout@v2
-      - name: install jq
-        run: zypper -n in jq
+  #test:
+  #  runs-on: ubuntu-20.04
+  #  container:
+  #    image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86"
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: install jq
+  #      run: zypper -n in jq
 
-      - name: Run isotovideo against test code
-        run: isotovideo qemu_no_kvm=1 casedir=.
+  #    - name: Run isotovideo against test code
+  #      run: isotovideo qemu_no_kvm=1 casedir=.
 
-      - name: fail if any test module failed
-        run: jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1
+  #    - name: fail if any test module failed
+  #      run: jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1

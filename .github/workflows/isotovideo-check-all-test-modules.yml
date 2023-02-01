@@ -3,14 +3,14 @@ name: isotovideo - check all test modules
 # yamllint disable-line rule:truthy
 on: [push, pull_request]
 jobs:
-  test:
-    # "ubuntu-latest" at time of writing 2020-12-14 is Ubuntu 18.04 showing a
-    # network problem "level=error msg="could not find slirp4netns, the
-    # network namespace won't be configured: exec: \"slirp4netns\": executable
-    # file not found in $PATH""
-    # which can be fixed with a more recent version of Ubuntu explicitly
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run isotovideo against test code, fail if any test module failed
-        run: podman run --rm -it -v .:/tests:Z --entrypoint '' registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86 /bin/sh -c 'zypper -n in jq && isotovideo qemu_no_kvm=1 casedir=/tests && jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1'
+  #test:
+  #  # "ubuntu-latest" at time of writing 2020-12-14 is Ubuntu 18.04 showing a
+  #  # network problem "level=error msg="could not find slirp4netns, the
+  #  # network namespace won't be configured: exec: \"slirp4netns\": executable
+  #  # file not found in $PATH""
+  #  # which can be fixed with a more recent version of Ubuntu explicitly
+  #  runs-on: ubuntu-20.04
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Run isotovideo against test code, fail if any test module failed
+  #      run: podman run --rm -it -v .:/tests:Z --entrypoint '' registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86 /bin/sh -c 'zypper -n in jq && isotovideo qemu_no_kvm=1 casedir=/tests && jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1'

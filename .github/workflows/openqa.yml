@@ -1,0 +1,33 @@
+---
+name: openQA - GitHub action example
+# yamllint disable-line rule:truthy
+on:
+  push:
+  pull_request:
+  issue_comment:
+    types: [created, edited]
+  workflow_dispatch:
+env:
+  OPENQA_TOKEN: ${{ secrets.OPENQA_API_USER }}:${{ secrets.OPENQA_API_KEY }}:${{ secrets.OPENQA_API_SECRET }}
+  OPENQA_HOST: ${{ secrets.OPENQA_URL }}
+
+jobs:
+  trigger_and_monitor_openqa:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.opensuse.org/home/okurz/container/containers/tumbleweed:curl-jq
+    steps:
+      - name: Trigger and monitor openQA test
+        run: >
+          set -o pipefail
+          set -e
+          repo_ref=$GITHUB_REPOSITORY#$GITHUB_REF_NAME
+          job_id=$(set -x && curl -sS -u "$OPENQA_TOKEN" -X POST -d "CASEDIR=$GITHUB_SERVER_URL/$repo_ref" -d "TEST=test-$GITHUB_EVENT_NAME-$repo_ref" -d "BUILD=$repo_ref" -d "DISTRI=example" -d "WORKER_CLASS=openqaworker20" -d 'NEEDLES_DIR=%CASEDIR%/needles' "$OPENQA_HOST"/api/v1/jobs | jq .id)
+          job=$OPENQA_HOST/api/v1/jobs/$job_id
+          while :; do
+            read state result < <(echo $(curl -sS "$job" | jq -r .job.state,.job.result))
+            [[ $state = 'done' ]] && break || echo "job state of job ID $job_id : $state, waiting…"
+            sleep 10
+          done
+          echo "job ID $job_id : state: $state, result: $result"
+          [[ $result = 'passed' ]]
