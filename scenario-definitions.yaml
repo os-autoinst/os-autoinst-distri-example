@@ -1,0 +1,13 @@
+products:
+  example:
+    distri: "example"
+    flavor: "DVD"
+    arch: "x86_64"
+    version: '0'
+machines:
+  64bit:
+    backend: "qemu"
+job_templates:
+  simple_boot:
+    product: "example"
+    machine: "64bit"
