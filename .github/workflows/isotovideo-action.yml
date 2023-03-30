@@ -9,8 +9,6 @@ jobs:
       image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86"
     steps:
       - uses: actions/checkout@v2
-      - name: install jq
-        run: zypper -n in jq
 
       - name: Run isotovideo against test code
         run: isotovideo qemu_no_kvm=1 casedir=.
