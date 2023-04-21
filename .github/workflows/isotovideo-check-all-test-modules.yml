@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run isotovideo against test code, fail if any test module failed
-        run: podman run --rm -it -v .:/tests:Z --entrypoint '' registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86 /bin/sh -c 'zypper -n in jq && isotovideo qemu_no_kvm=1 casedir=/tests && jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1'
+        run: podman run --rm -it -v .:/tests:Z --entrypoint '' registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86-jq /bin/sh -c 'isotovideo qemu_no_kvm=1 casedir=/tests && jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1'

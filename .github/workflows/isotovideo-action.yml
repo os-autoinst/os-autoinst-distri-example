@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     container:
-      image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86"
+      image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86-jq"
     steps:
       - uses: actions/checkout@v2
       - name: install jq
