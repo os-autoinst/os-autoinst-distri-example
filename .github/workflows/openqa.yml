@@ -23,7 +23,6 @@ jobs:
           openqa-cli schedule \
             --monitor \
             --host "${OPENQA_HOST:-https://openqa.opensuse.org}/" \
-            --apibase "api/v1" \
             --apikey "$OPENQA_API_KEY" --apisecret "$OPENQA_API_SECRET" \
             --param-file SCENARIO_DEFINITIONS_YAML=scenario-definitions.yaml \
             DISTRI=example VERSION=0 FLAVOR=DVD ARCH=x86_64 TEST=simple_boot \
