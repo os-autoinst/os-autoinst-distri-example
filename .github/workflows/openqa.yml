@@ -2,9 +2,8 @@
 name: openQA - GitHub action example
 # yamllint disable-line rule:truthy
 on:
-  pull_request:
-  issue_comment:
-    types: [created, edited]
+  # triggering on PRs is disabled here in favor of using the webhook-based approach
+  #pull_request:
   workflow_dispatch:
 env:
   OPENQA_HOST: ${{ secrets.OPENQA_URL }}
