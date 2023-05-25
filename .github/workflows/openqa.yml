@@ -14,7 +14,7 @@ jobs:
   trigger_and_monitor_openqa:
     runs-on: ubuntu-latest
     container:
-      image: registry.opensuse.org/devel/openqa/containers-tw/tumbleweed:client
+      image: registry.opensuse.org/devel/openqa/containers/tumbleweed:client
     steps:
       - uses: actions/checkout@v3
       - name: Trigger and monitor openQA test
