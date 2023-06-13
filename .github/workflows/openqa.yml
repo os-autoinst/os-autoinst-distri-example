@@ -11,8 +11,8 @@ env:
   OPENQA_HOST: ${{ secrets.OPENQA_URL }}
   OPENQA_API_KEY: ${{ secrets.OPENQA_API_KEY }}
   OPENQA_API_SECRET: ${{ secrets.OPENQA_API_SECRET }}
-  GH_REPO: ${github.event.pull_request.head.repo.full_name}}
-  GH_REF: ${{github.event.pull_request.head.ref}}
+  GH_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+  GH_REF: ${{ github.event.pull_request.head.ref }}
 
 jobs:
   trigger_and_monitor_openqa:
