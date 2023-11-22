@@ -1,0 +1,26 @@
+---
+name: 'Perl static checks'
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  perl-lint-checks:
+    runs-on: ubuntu-latest
+    name: "Perltidy"
+    container:
+      image: perldocker/perl-tester
+    steps:
+      - uses: actions/checkout@v4
+      - run: GITHUB_ACTIONS=1 ./tools/tidyall --check-only --all --quiet
+  perl-critic-checks:
+    runs-on: ubuntu-latest
+    name: "Perlcritic"
+    container:
+      image: perldocker/perl-tester
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./tools/perlcritic --quiet .

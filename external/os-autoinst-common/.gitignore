@@ -1,0 +1,5 @@
+*.tdy
+.*.swp
+*~
+__pycache__/
+.tidyall.d/

@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:josegomezr/os-autoinst-common.git
+	branch = unify_perltidy
+	commit = b2e8159086c655f50e86a7cc64f048332b4dd8c5
+	parent = d0857d708878e6f1558f66ba29a6b642c534c186
+	method = merge
+	cmdver = 0.4.6
