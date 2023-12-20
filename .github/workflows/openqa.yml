@@ -19,17 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.opensuse.org/devel/openqa/containers/tumbleweed:client
+    if: ${{ env.OPENQA_API_KEY && env.OPENQA_API_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - name: Trigger and monitor openQA test
         id: openqa_schedule
         run: |
-          if [[ "x$OPENQA_API_KEY" == 'x' && "x$OPENQA_API_SECRET" == 'x' ]]; then
-            echo "Skipping OpenQA Schedule step: No API Keys configured."
-            echo "Configure OPENQA_API_KEY & OPENQA_API_SECRET secrets"
-            exit 0
-          fi
-
           openqa-cli schedule \
             --monitor \
             --host "${OPENQA_HOST:-https://openqa.opensuse.org}/" \

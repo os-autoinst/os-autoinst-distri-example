@@ -1,11 +1,43 @@
 ---
 name: isotovideo
 # yamllint disable-line rule:truthy
-on: [push, pull_request]
+on:
+  - push
+  - pull_request
 jobs:
-  test:
+  isotovideo:
+    strategy:
+      matrix:
+        # An example matrix, it'll create a derivate job for each
+        # item specified here. For simplicity sake the example below
+        # has the full var line since it's easy enough.
+        #
+        # For more complex setups it'll be worth exploring advance matrix setups
+        # see: https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#example-expanding-configurations
+        isotovideo-args:
+          - "--exit-status-from-test-results qemu_no_kvm=1 casedir=."
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run isotovideo against test code in happy-path scenario
-        run: podman run --rm -it -v .:/tests:Z registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86 qemu_no_kvm=1 casedir=/tests
+      - uses: actions/checkout@v4
+
+      - name: Run isotovideo against test code
+        uses: "docker://registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86"
+        with:
+          args: ${{ matrix.isotovideo-args }} ${{ env.ACTIONS_STEP_DEBUG && '--debug' || '' }}
+          entrypoint: 'isotovideo'
+
+      - name: Archive test artifcats
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: isotovideo-artifacts
+          path: |
+            ./testresults/
+            ./video.ogv
+            ./video_time.vtt
+            ./qemu_state.json
+            ./serial_terminal.txt
+            ./virtio_console.log
+            ./virtio_console1.log
+            ./virtio_console_user.log
+          retention-days: 7
