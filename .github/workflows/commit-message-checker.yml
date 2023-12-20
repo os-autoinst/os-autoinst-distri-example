@@ -1,0 +1,15 @@
+---
+name: 'Commit message check'
+
+on:
+  pull_request:
+  push:
+    branches:
+      # we must not fix commit messages when they already reached main
+      - '!main'
+
+jobs:
+  check-commit-message:
+    secrets:
+      accessToken: "${{ secrets.GITHUB_TOKEN }}"
+    uses: os-autoinst/os-autoinst-common/.github/workflows/base-commit-message-checker.yml@master
