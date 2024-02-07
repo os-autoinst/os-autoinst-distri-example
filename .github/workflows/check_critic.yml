@@ -1,0 +1,13 @@
+---
+name: perlcritic
+on: [push, pull_request]
+
+jobs:
+  perlcritic_checks:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.opensuse.org/devel/openqa/containers/os-autoinst_dev
+    steps:
+      - uses: actions/checkout@v4
+      - name: Static analysis
+        run: ./external/os-autoinst-common/tools/perlcritic --quiet .
