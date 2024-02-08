@@ -1,0 +1,15 @@
+---
+name: tidyall
+on: [push, pull_request]
+
+jobs:
+  tidyall:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.opensuse.org/devel/openqa/containers/os-autoinst_dev
+    steps:
+      - uses: actions/checkout@v4
+      - name: Static analysis
+        run: |
+          git config --global --add safe.directory '*'
+          ./external/os-autoinst-common/tools/tidyall --check-only $(git ls-files)
