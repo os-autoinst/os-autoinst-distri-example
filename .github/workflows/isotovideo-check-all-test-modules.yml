@@ -13,4 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run isotovideo against test code, fail if any test module failed
-        run: podman run --rm -it -v .:/tests:Z --entrypoint '' registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86-jq /bin/sh -c 'isotovideo qemu_no_kvm=1 casedir=/tests && jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1'
+        env:
+          image: registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86-jq
+          isotovideo: isotovideo qemu_no_kvm=1 casedir=/tests
+          jq_filter: jq .result testresults/result-*.json
+          err_msg: Test modules failed
+        run: docker run --rm -it -v .:/tests:Z --entrypoint '' $image /bin/sh -c '$isotovideo && $jq_filter | grep ok || (echo "$err_msg" && exit 1)'
