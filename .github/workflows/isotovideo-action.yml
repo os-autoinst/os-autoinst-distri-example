@@ -8,7 +8,7 @@ jobs:
     container:
       image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86-jq"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: install jq
         run: zypper -n in jq
 
