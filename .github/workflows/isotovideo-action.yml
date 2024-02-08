@@ -9,11 +9,9 @@ jobs:
       image: "registry.opensuse.org/devel/openqa/containers/isotovideo:qemu-x86-jq"
     steps:
       - uses: actions/checkout@v2
-      - name: install jq
-        run: zypper -n in jq
 
       - name: Run isotovideo against test code
-        run: isotovideo qemu_no_kvm=1 casedir=.
+        run: isotovideo qemu_no_kvm=1 casedir=$(pwd)
 
       - name: fail if any test module failed
-        run: jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1
+        run: jq .result testresults/result-*.json | grep ok || (echo "Test modules failed" && exit 1)
