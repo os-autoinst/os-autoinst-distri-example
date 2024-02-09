@@ -13,7 +13,4 @@ jobs:
         run: zypper -n in jq
 
       - name: Run isotovideo against test code
-        run: isotovideo qemu_no_kvm=1 casedir=.
-
-      - name: fail if any test module failed
-        run: jq .result testresults/result-*.json | grep -v ok && echo "Test modules failed" && exit 1
+        run: isotovideo --exit-status-from-test-results qemu_no_kvm=1 casedir=.
