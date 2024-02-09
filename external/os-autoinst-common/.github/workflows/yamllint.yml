@@ -1,0 +1,15 @@
+---
+name: 'YAML-lint'
+
+on: [push, pull_request]
+
+jobs:
+  yaml-lint:
+    runs-on: ubuntu-latest
+    name: "YAML-lint"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker://registry.opensuse.org/home/okurz/container/containers/tumbleweed:yamllint
+        with:
+          entrypoint: yamllint
+          args: -c .yamllint --strict ./ --format github
