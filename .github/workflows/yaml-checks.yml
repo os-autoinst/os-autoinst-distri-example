@@ -1,0 +1,14 @@
+---
+name: yamllint
+on: [push, pull_request]
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    container:
+      image: registry.opensuse.org/devel/openqa/containers/os-autoinst_dev
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate yamls
+        run: |
+          yamllint --strict .
