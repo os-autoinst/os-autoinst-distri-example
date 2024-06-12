@@ -39,6 +39,26 @@ Feel free to add issues in github or send pull requests.
 If this is too much hassle for you feel free to provide incomplete pull
 requests for consideration or create an issue with a code change proposal.
 
+## Developing tests in a browser
+
+If you only have a browser available, you can also develop tests with
+[GitHub Codespaces](https://docs.github.com/en/codespaces).
+
+On
+[os-autoinst-distri-example](https://github.com/os-autoinst/os-autoinst-distri-example).
+click on the "Code" button and select "Codespaces". Just click on the plus sign
+to create a new Codespace. Or use
+[this link](https://codespaces.new/os-autoinst/os-autoinst-distri-example?quickstart=1)
+as a quickstart to resume existing instances or create new ones.
+
+See [OpenQA in a browser](https://open.qa/docs/#_openqa_in_a_browser) for
+documentation on how to use it.
+
+You can then directly modify tests in VSCode and run
+```
+openqa-clone-job url-to-job CASEDIR=$PWD
+```
+
 ### Local testing and CI environment
 
 This repo is intended to be used with openQA as a learning example. The
