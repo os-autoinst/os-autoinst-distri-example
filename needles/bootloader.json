@@ -1,0 +1,14 @@
+{
+    "area": [
+        {
+            "height": 10,
+            "type": "match",
+            "width": 100,
+            "xpos": 0,
+            "ypos": 370
+        }
+    ],
+    "tags": [
+        "bootloader", "no-boot-media"
+    ]
+}
