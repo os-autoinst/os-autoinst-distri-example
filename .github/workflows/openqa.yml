@@ -20,14 +20,13 @@ jobs:
     container:
       image: registry.opensuse.org/devel/openqa/containers/tumbleweed:client
     steps:
-      - uses: actions/checkout@v3
       - name: Trigger and monitor openQA test
         run: >
           openqa-cli schedule \
             --monitor \
             --host "${OPENQA_HOST:-https://openqa.opensuse.org}/" \
             --apikey "$OPENQA_API_KEY" --apisecret "$OPENQA_API_SECRET" \
-            --param-file SCENARIO_DEFINITIONS_YAML=scenario-definitions.yaml \
+            SCENARIO_DEFINITIONS_YAML_FILE="$GITHUB_SERVER_URL/$GH_REPO/blob/$GH_REF/scenario-definitions.yaml?raw=1" async=1 \
             DISTRI=example VERSION=0 FLAVOR=DVD ARCH=x86_64 TEST=simple_boot \
             BUILD="$GH_REPO.git#$GH_REF" _GROUP_ID="0" \
             CASEDIR="$GITHUB_SERVER_URL/$GH_REPO.git#$GH_REF" \
