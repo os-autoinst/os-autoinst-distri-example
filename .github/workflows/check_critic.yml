@@ -2,6 +2,8 @@
 name: perlcritic
 on: [push, pull_request]
 
+permissions:
+  contents: read
 jobs:
   perlcritic_checks:
     runs-on: ubuntu-latest
