@@ -7,6 +7,8 @@ on:
   # The difference is that this runs always with the context of the master
   # branch. This is necessary to allow accessing the API credential secrets.
   workflow_dispatch:
+permissions:
+  contents: read
 env:
   OPENQA_HOST: ${{ secrets.OPENQA_URL }}
   OPENQA_API_KEY: ${{ secrets.OPENQA_API_KEY }}
