@@ -2,6 +2,8 @@
 name: tidyall
 on: [push, pull_request]
 
+permissions:
+  contents: read
 jobs:
   tidyall:
     runs-on: ubuntu-latest
