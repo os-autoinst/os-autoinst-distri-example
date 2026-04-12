@@ -10,6 +10,6 @@ jobs:
     container:
       image: registry.opensuse.org/devel/openqa/containers/os-autoinst_dev
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Static analysis
         run: ./external/os-autoinst-common/tools/perlcritic --quiet .
