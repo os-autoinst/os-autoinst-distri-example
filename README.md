@@ -3,8 +3,9 @@
 Example distro for openQA. This can be used as a template for new openQA test
 projects.
 
-To use this repository with openQA, clone this repo to
-/var/lib/openqa/tests/<yourdistro>.
+To use this repository with openQA, click on "Create …" and "Example test" in
+the navigation bar and "Create tests" below the form. You need to be logged in
+as an operator.
 
 To use it standalone with isotovideo any other local path is fine.
 
