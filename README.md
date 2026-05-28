@@ -3,8 +3,9 @@
 Example distro for openQA. This can be used as a template for new openQA test
 projects.
 
-To use this repository with openQA, clone this repo to
-/var/lib/openqa/tests/<yourdistro>.
+To use this repository with openQA, click on "Create …" and "Example test" in
+the navigation bar and "Create tests" below the form. You need to be logged in
+as an operator.
 
 To use it standalone with isotovideo any other local path is fine.
 
@@ -12,10 +13,10 @@ When running tests based on the state in this repo the test is expected to
 pass with a single needle match assuming that no bootable medium is specified
 for a start.
 
-For training purposes checkout the "training" branch which intentionally fails
-as no needles are present. Creating the needles is by intention left to new
-users as a learning exercise by running the test distribution within openQA
-and using the openQA internal needle editor to create a new needle.
+For training purposes, check out the "training" branch which intentionally fails
+as no needles are present. This is useful as a learning exercise by running the
+test distribution within openQA and using the built-in needle editor to create a
+new needle.
 
 ## Communication
 
