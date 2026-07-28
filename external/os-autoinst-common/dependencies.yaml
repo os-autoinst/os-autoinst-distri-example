@@ -17,15 +17,20 @@ main_requires:
   perl(Module::CPANfile):
 
 develop_requires:
-  perl(Perl::Tidy): '== 20260204'
+  perl(Perl::Tidy): '== 20260705'
   perl(Code::TidyAll):
   perl(Perl::Critic):
   perl(Perl::Critic::Community):
+  perl(Test::Perl::Critic):
+  python3-gitlint:
+  expect:  # for unbuffer
+  shfmt:
 
 cover_requires:
   perl(Devel::Cover):
   perl(Devel::Cover::Report::Codecov):
 
 test_requires:
+  perl(Test::Compile):
   perl(Test::Most):
   perl(Test::Warnings):

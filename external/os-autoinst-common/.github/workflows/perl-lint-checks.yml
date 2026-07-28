@@ -5,10 +5,12 @@ on: [push, pull_request]
 
 jobs:
   perl-lint-checks:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     name: "Perltidy"
     container:
       image: registry.opensuse.org/devel/openqa/containers/os-autoinst_dev
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
       - run: GITHUB_ACTIONS=1 make test-tidy
